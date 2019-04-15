@@ -1,7 +1,7 @@
-version: '2'
+version: '2.2'
 services:
   reverse-proxy:
-    image: traefik:1.7
+    image: ipepe/traefik:1.7
     restart: always
     network_mode: bridge
     ports:
@@ -10,3 +10,15 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+  whoami:
+    image: containous/whoami # A container that exposes an API to show its IP address
+    network_mode: bridge
+    scale: 3
+    expose:
+      - 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
+
+# docker-compose up

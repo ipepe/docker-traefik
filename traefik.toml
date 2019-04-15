@@ -1,8 +1,5 @@
 defaultEntryPoints = ["http", "https"]
 
-[web]
-address = ":8080"
-
 [entryPoints]
   [entryPoints.http]
   address = ":80"
@@ -14,6 +11,9 @@ address = ":8080"
       [[entryPoints.https.tls.certificates]]
       certFile = "/opt/traefik/certs/default.crt"
       keyFile = "/opt/traefik/certs/default.key"
+
+[web]
+address = ":8080"
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
