@@ -1,4 +1,4 @@
-version: '2.2'
+version: '2'
 services:
   reverse-proxy:
     image: ipepe/traefik:1.7
@@ -7,18 +7,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
+      - "8080:8080" # The Web UI (enabled by --api)
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
-  whoami:
-    image: containous/whoami # A container that exposes an API to show its IP address
-    network_mode: bridge
-    scale: 3
-    expose:
-      - 80
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:whoami.docker.localhost"
-
-# docker-compose up
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
