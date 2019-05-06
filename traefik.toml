@@ -8,15 +8,27 @@ defaultEntryPoints = ["http", "https"]
   [entryPoints.https]
   address = ":443"
     [entryPoints.https.tls]
+    [entryPoints.https.tls.defaultCertificate]
+      certFile = "/opt/traefik/certs/default.crt"
+      keyFile = "/opt/traefik/certs/default.key"
       [[entryPoints.https.tls.certificates]]
       certFile = "/opt/traefik/certs/default.crt"
       keyFile = "/opt/traefik/certs/default.key"
 
-[web]
+# Web Dashboard
+[api]
 address = ":8080"
 
+# Docker config
 [docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "docker.localhost"
 watch = true
 exposedByDefault = false
+
+[acme]
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"

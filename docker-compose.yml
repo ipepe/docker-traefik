@@ -4,6 +4,7 @@ services:
     image: ipepe/traefik:1.7
     restart: always
     network_mode: bridge
+    command: --acme.email="letsencrypt@ipepe.pl"
     ports:
       - "80:80"
       - "443:443"

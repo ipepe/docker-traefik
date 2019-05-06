@@ -1,24 +1,24 @@
-version: '2.2'
+version: '2'
 services:
   reverse-proxy:
     build: .
     restart: always
     network_mode: bridge
+    command: --acme.email="letsencrypt@ipepe.pl"
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
+      - "8080:8080" # The Web UI (enabled by --api)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
   whoami:
     image: containous/whoami # A container that exposes an API to show its IP address
     network_mode: bridge
-    scale: 3
     expose:
       - 80
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:whoami.docker.localhost"
+      - "traefik.frontend.rule=Host:pubdev.ipepe.pl"
 
 # docker-compose -f docker-compose.dev.yml up --build
