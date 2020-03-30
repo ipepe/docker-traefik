@@ -3,6 +3,7 @@ I reconfigured traefik for:
  * HTTP redirect to HTTPS
  * default self signed certificate
    * letsencrypt support.
+ * Dashboard enabled - port 8080
 
 You don't need to create `traefik.toml` file. Just create `docker-compose.yml` and You are good to go.
 
@@ -19,7 +20,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080" # The Web UI (enabled by --api)
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
 
