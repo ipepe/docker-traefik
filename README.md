@@ -3,7 +3,7 @@ I reconfigured traefik for:
  * HTTP redirect to HTTPS
  * default self signed certificate
    * letsencrypt support.
- * Dashboard enabled - port 8080
+ * Dashboard enabled by default on port 8080
 
 You don't need to create `traefik.toml` file. Just create `docker-compose.yml` and You are good to go.
 
