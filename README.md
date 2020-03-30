@@ -24,7 +24,7 @@ You can insert Your own default certificate keys at `/opt/traefik/certs/`.
 version: '2'
 services:
   reverse-proxy:
-    image: ipepe/traefik:1.7
+    image: ipepe/traefik
     restart: always
     network_mode: bridge
     command: --acme.email="letsencrypt@example.org"
