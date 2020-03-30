@@ -10,7 +10,7 @@ I reconfigured traefik for:
 You don't need to create `traefik.toml` file. Just create `docker-compose.yml` and You are good to go.
 
 # Warning! Insecure default SSL keys.
-This container is configured for simplicity. Because of that, keys are generated in Dockerfile and they can be extracted and used to decrypt ssl communication. They should be treated as leaked/not secure. 
+This container is configured for simplicity. Because of that, default SSL keys are generated in Dockerfile and they can be extracted and used to decrypt ssl communication. They should be treated as leaked/not secure. 
 
 When using it for development or staging responsibly it should not matter. If used behind cloudflare.com it helps a bit, but still insecure.
 
