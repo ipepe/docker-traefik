@@ -1,5 +1,10 @@
-# docker-traefik-with-self-signed-ssl
-Reconfigured traefik for HTTP redirect to HTTPS. With default self signed certificate and letsencrypt support.
+# docker-traefik by ipepe
+I reconfigured traefik for:
+ * HTTP redirect to HTTPS
+ * default self signed certificate
+   * letsencrypt support.
+
+You don't need to create `traefik.toml` file. Just create `docker-compose.yml` and You are good to go.
 
 # Production docker-compose.yml
 
