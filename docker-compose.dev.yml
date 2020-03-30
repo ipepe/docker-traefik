@@ -4,7 +4,7 @@ services:
     build: .
     restart: always
     network_mode: bridge
-    command: --acme.email="letsencrypt@ipepe.pl"
+    command: --acme.email="letsencrypt@example.org"
     ports:
       - "80:80"
       - "443:443"
@@ -19,6 +19,6 @@ services:
       - 80
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:pubdev.ipepe.pl"
+      - "traefik.frontend.rule=Host:whoami.localhost"
 
 # docker-compose -f docker-compose.dev.yml up --build
