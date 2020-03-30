@@ -1,4 +1,6 @@
 # docker-traefik by ipepe
+This is based Traefik v1.7. It's important because 2.0 made breaking changes to syntax of toml file and docker labels.
+
 I reconfigured traefik for:
  * HTTP redirect to HTTPS
  * default self signed certificate
@@ -6,6 +8,15 @@ I reconfigured traefik for:
  * Dashboard enabled by default on port 8080
 
 You don't need to create `traefik.toml` file. Just create `docker-compose.yml` and You are good to go.
+
+# Warning! Insecure default SSL keys.
+This container is configured for simplicity. Because of that, keys are generated in Dockerfile and they can be extracted and used to decrypt ssl communication. They should be treated as leaked/not secure. 
+
+When using it for development or staging responsibly it should not matter. If used behind cloudflare.com it helps a bit, but still insecure.
+
+If traefik succeeds at generating letsencrypt certificate, this warning does not apply. 
+
+You can insert Your own default certificate keys at `/opt/traefik/certs/`.
 
 # Production docker-compose.yml
 
