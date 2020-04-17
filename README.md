@@ -50,5 +50,5 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.port=8080'
-      - 'traefik.frontend.rule=Host:swagger.example.org'
+      - 'traefik.frontend.rule=Host:swagger.example.org,secondhost.example.org'
 ```
