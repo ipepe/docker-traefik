@@ -27,7 +27,7 @@ services:
     image: ipepe/traefik
     restart: always
     network_mode: bridge
-    command: --acme.email="letsencrypt@example.org"
+    command: --acme.email="letsencrypt@example.org" --logLevel="DEBUG" --debug=true
     ports:
       - "80:80"
       - "443:443"
