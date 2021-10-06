@@ -27,13 +27,15 @@ services:
     image: ipepe/traefik
     restart: always
     network_mode: bridge
-    command: --acme.email="letsencrypt@example.org" --logLevel="DEBUG" --debug=true
+    command: --acme.email="letsencrypt@example.org"
+    #command: --acme.email="letsencrypt@example.org" --logLevel="DEBUG" --debug=true
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+       - ./data:/data
+       - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
 
 ```
 
