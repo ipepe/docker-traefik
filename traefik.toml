@@ -27,7 +27,7 @@ watch = true
 exposedByDefault = false
 
 [acme]
-storage = "acme.json"
+storage = "/data/acme.json"
 entryPoint = "https"
 onHostRule = true
 [acme.httpChallenge]
